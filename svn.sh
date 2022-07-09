@@ -37,7 +37,7 @@ esac
 
 docker run --rm -it \
     -v $NEWIT_SVN_HOME_DIR:/home/newit/.subversion \
-    -v $SCRIPT_DIR:/newit \
+    -v $PWD:/newit \
     -w /newit \
     $DOCKER_FLAGS \
     newit-svn:$GENTOO_VER \

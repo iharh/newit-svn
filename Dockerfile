@@ -14,10 +14,12 @@ RUN emerge -qv app-portage/eix dev-vcs/subversion
 #TODO: merge with previous one RUN
 RUN mkdir /var/mail
 
-RUN cat /etc/default/useradd
+RUN localedef -i en_US -f UTF-8 en_US.UTF-8
 
 # Accept id through --build-arg and create newit user matching current logon user ID
 # -m for creating home dir
 ARG uid
 RUN useradd -l --uid=$uid newit
 USER newit
+
+ENV LC_CTYPE=en_US.UTF-8
